@@ -1,0 +1,7 @@
+Env: "Development"
+
+Namespace: "demo-performance"
+
+App:
+  ImageName: "mcr.microsoft.com/dotnet/samples:aspnetapp"
+  Replicas: 3
