@@ -233,7 +233,7 @@ jobs:
           $RESOURCE_GROUP = "${{ secrets.AZURE_RG }}"
           $SUBSCRIPTION_ID = "${{ secrets.AZURE_SUBSCRIPTION }}"
           $EXPERIMENT_NAME = "${{ needs.deploy-infrastructure.outputs.experimentName }}"
-          az rest --method post --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME/start?api-version=2024-01-01
+          az rest --method post --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME/start?api-version=2023-11-01
 
   run-azure-load-test:
     # The type of runner that the job will run on
