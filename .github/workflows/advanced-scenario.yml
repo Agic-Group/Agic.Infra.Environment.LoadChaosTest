@@ -116,6 +116,8 @@ jobs:
         run: |
           cd src/advanced-scenario/helm
           RELEASE_NAME_LOWERCASE=$(echo ${{ env.APPNAME }} | tr -dc '[:alnum:]\n\r' | tr '[:upper:]' '[:lower:]')
+          # echo release name lowercase to output
+          echo "$RELEASE_NAME_LOWERCASE"
           helm upgrade $RELEASE_NAME_LOWERCASE . --install 
           echo "CLUSTERIP=$(kubectl get service "nginx-ingress-nginx-controller" -n default -o jsonpath="{.status.loadBalancer.ingress[0].ip}")" >> $GITHUB_ENV
 
