@@ -46,7 +46,7 @@ docker pull mcr.microsoft.com/azuredocs/aks-helloworld:v1
 Sample:
 
 ```console
-docker tag mcr.microsoft.com/azuredocs/aks-helloworld:v1 myregistry.azurecr.io/samples/test
+docker tag mcr.microsoft.com/azuredocs/aks-helloworld:v1 <acr-name>.azurecr.io/samples/test
 ```
 
 ## 6. Push the image to your registry
