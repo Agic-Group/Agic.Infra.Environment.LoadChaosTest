@@ -7,7 +7,7 @@ param experimentConfiguration object
 
 param actionName string
 
-var targetId = resourceId(subscription().subscriptionId, resourceGroup().name, 'Microsoft.ContainerService/managedClusters', aksName, 'Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh')
+var targetId = '/subscriptions/${subscription().subscriptionId}/resourceGroups/${resourceGroup().name}/providers/Microsoft.ContainerService/managedClusters/${aksName}/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh'
 
 resource experiment 'Microsoft.Chaos/experiments@2023-11-01' = {
   name: experimentName
