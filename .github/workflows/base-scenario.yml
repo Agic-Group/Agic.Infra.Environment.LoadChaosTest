@@ -203,18 +203,18 @@ jobs:
           failOnStdErr: false
 
       # Assign experiment permission to your AKS cluster
-      - name: Assign experiment permission to your AKS cluster
-        shell: pwsh
-        run: |
-          $AKS_NAME = "${{ env.KUBERNETESSERVICENAME }}"
-          $RESOURCE_GROUP = "${{ secrets.AZURE_RG }}"
-          $SUBSCRIPTION_ID = "${{ secrets.AZURE_SUBSCRIPTION }}"
+      # - name: Assign experiment permission to your AKS cluster
+      #   shell: pwsh
+      #   run: |
+      #     $AKS_NAME = "${{ env.KUBERNETESSERVICENAME }}"
+      #     $RESOURCE_GROUP = "${{ secrets.AZURE_RG }}"
+      #     $SUBSCRIPTION_ID = "${{ secrets.AZURE_SUBSCRIPTION }}"
 
-          $EXPERIMENT_PRINCIPAL_ID = "${{ steps.ChaosMeshPodFaultsExperiment.outputs.servicePrincipalId }}"
-          [array] $getAssignmentResult = az role assignment list --assignee $EXPERIMENT_PRINCIPAL_ID --all
-          if($getAssignmentResult.count -eq 1){
-            az role assignment create --role "Azure Kubernetes Service Cluster Admin Role" --assignee-object-id $EXPERIMENT_PRINCIPAL_ID --scope "subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.ContainerService/managedClusters/$AKS_NAME" --assignee-principal-type ServicePrincipal
-          }
+      #     $EXPERIMENT_PRINCIPAL_ID = "${{ steps.ChaosMeshPodFaultsExperiment.outputs.servicePrincipalId }}"
+      #     [array] $getAssignmentResult = az role assignment list --assignee $EXPERIMENT_PRINCIPAL_ID --all
+      #     if($getAssignmentResult.count -eq 1){
+      #       az role assignment create --role "Azure Kubernetes Service Cluster Admin Role" --assignee-object-id $EXPERIMENT_PRINCIPAL_ID --scope "subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.ContainerService/managedClusters/$AKS_NAME" --assignee-principal-type ServicePrincipal
+      #     }
     # Map a step output to a job output
     outputs:
       experimentName: ${{ steps.ChaosMeshPodFaultsExperiment.outputs.experimentName }}
