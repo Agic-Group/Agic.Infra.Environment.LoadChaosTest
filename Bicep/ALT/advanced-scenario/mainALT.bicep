@@ -1,7 +1,7 @@
 param name string
 param location string
 
-resource loadTesting 'Microsoft.LoadTestService/loadTests@2022-04-15-preview' = {
+resource loadTesting 'Microsoft.LoadTestService/loadTests@2022-12-01' = {
   name: name
   location: location
   tags: {
