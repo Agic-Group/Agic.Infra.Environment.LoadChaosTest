@@ -42,7 +42,7 @@ resource experiment 'Microsoft.Chaos/experiments@2023-11-01' = {
               }
               {
                 type: 'continuous'
-                selectorId: 'Selector1'
+                selectorId: guid('Selector1')
                 duration: 'PT6M'
                 parameters: [
                   {
