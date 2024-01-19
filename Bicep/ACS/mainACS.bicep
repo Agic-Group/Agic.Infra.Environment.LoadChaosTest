@@ -19,7 +19,7 @@ resource experiment 'Microsoft.Chaos/experiments@2023-11-01' = {
     selectors: [
       {
         type: 'List'
-        id: 'Selector1'
+        id: guid('Selector1')
         targets: [
           {
             id: targetId
@@ -36,9 +36,9 @@ resource experiment 'Microsoft.Chaos/experiments@2023-11-01' = {
             name: 'Branch 1'
             actions: [
               {
+                name: 'urn:csci:microsoft:chaosStudio:TimedDelay/1.0'
                 type: 'delay'
                 duration: 'PT1M'
-                name: 'urn:csci:microsoft:chaosStudio:TimedDelay/1.0'
               }
               {
                 type: 'continuous'
