@@ -47,7 +47,7 @@ resource experiment 'Microsoft.Chaos/experiments@2023-11-01' = {
                 parameters: [
                   {
                     key: 'jsonSpec'
-                    value: '{"mode":"all","selector":{"namespaces":["${experimentConfiguration.namespace}"]},"stressors":{"cpu":{"workers":1,"load":90}}}'
+                    value: '{"action":"pod-failure","mode":"all","selector":{"namespaces":["${experimentConfiguration.namespace}"]},"stressors":{"cpu":{"workers":1,"load":90}}}'
                   }
                 ]
                 name: 'urn:csci:microsoft:azureKubernetesServiceChaosMesh:${actionName}/2.1'
